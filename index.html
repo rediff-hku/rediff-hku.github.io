@@ -59,8 +59,7 @@
             <img src="static/images/logo.png" alt="Fudoki Logo" style="height: 120px;">
           </div>
           
-          <div class="is-size-5 publication-authors">
-            <!-- Paper authors -->
+          <div class="is-size-5 publication-authors authors-list">
             <span class="author-block">Jin Wang<sup>1,*</sup>, </span>
             <span class="author-block">Yao Lai<sup>1,*</sup>, </span>
             <span class="author-block">Aoxue Li<sup>2</sup>, </span>
@@ -72,11 +71,48 @@
             <span class="author-block">Ping Luo<sup>1</sup></span>
           </div>
 
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-5 publication-authors affiliations-list">
             <span class="author-block"><sup>1</sup>The University of Hong Kong</span>
             <span class="author-block"><sup>2</sup>Noah's Ark Lab</span>
-            <span class="eql-cntrb"><small><sup>*</sup>Indicates Equal Contribution</small></span>
           </div>
+
+          <div class="is-size-6 publication-authors equal-contrib">
+            <sup>*</sup>Indicates Equal Contribution
+          </div>
+
+          <style>
+          .equal-contrib {
+            text-align: center;
+            font-size: 1.15em;        /* 字号更大 */
+            color: #444;              /* 更深的灰色 */
+            font-weight: bold;        /* 加粗 */
+            margin-top: 0.8em;
+            letter-spacing: 0.02em;   /* 微微拉开字间距 */
+          }
+          .publication-authors {
+            text-align: center;
+            color: #666;
+            font-family: 'Roboto', 'Arial', sans-serif;
+          }
+
+          .authors-list, .affiliations-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.2em;
+            margin-bottom: 0.5em;
+          }
+
+          .author-block {
+            margin-bottom: 0.15em;
+            font-size: 1em;
+          }
+
+          .affiliations-list .author-block {
+            font-size: 0.95em;
+            margin: 0 0.6em;
+          }
+          </style>
         </div>
       </div>
     </div>
