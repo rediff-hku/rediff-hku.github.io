@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="section hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities</h1>
+          
+          <!-- 图标添加在这里 -->
+          <div style="margin: 20px 0;">
+            <img src="static/images/logo.png" alt="Fudoki Logo" style="height: 120px;">
+          </div>
+          
+          <div class="is-size-5 publication-authors">
+            <!-- Paper authors -->
+            <span class="author-block">
+              Anonymous Authors
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Institution<br>2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The rapid progress of large language models (LLMs) has catalyzed the emergence of multimodal large language models (MLLMs) that unify visual understanding and image generation within a single framework. 
+  However, most existing MLLMs rely on autoregressive (AR) architectures, which impose inherent limitations on future development, such as the raster-scan order in image generation and restricted causal context modeling. 
+  In this work, we challenge the dominance of AR-based approaches by introducing Fudoki, a unified multimodal model purely based on discrete flow matching, as an alternative to conventional AR paradigms. 
+  By leveraging metric-induced probability paths with kinetic optimal velocities, our framework goes beyond the previous masking-based corruption process, enabling iterative refinement with self-correction capability and richer bidirectional context integration during generation. 
+  To mitigate the high cost of training from scratch, we initialize Fudoki from pre-trained AR-based MLLMs and adaptively transition to the discrete flow matching paradigm.
+  Experimental results show that Fudoki achieves performance comparable to state-of-the-art AR-based MLLMs across both visual understanding and image generation tasks, highlighting its potential as a foundation for next-generation unified multimodal models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🖼️ Image Generation</h2>
+        <div class="content">
+          <div class="image-grid">
+            <div class="image-item">
+              <img src="static/images/generation_0.gif" alt="Image 1">
+              <div class="caption">
+                A red colored car.
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_33.gif" alt="Image 2">
+              <div class="caption">
+                Rainbow coloured penguin.
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_130.gif" alt="Image 3">
+              <div class="caption">
+                Hyper-realistic photo of an abandoned industrial site during a storm.
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_173.gif" alt="Image 4">
+              <div class="caption">
+                A loft bedroom with a white bed next to the bedside table
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_188.gif" alt="Image 5">
+              <div class="caption">
+                Eiffel Tower, large aperture, blurred background
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_191.gif" alt="Image 6">
+              <div class="caption">
+                The sunset is at the end of the sky and the sea.
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_192.gif" alt="Image 7">
+              <div class="caption">
+                A horse running on the beach at sunrise
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_193.gif" alt="Image 8">
+              <div class="caption">
+                A rabbit wears a blue scarf.
+              </div>
+            </div>
+            <div class="image-item">
+              <img src="static/images/generation_194.gif" alt="Image 9">
+              <div class="caption">
+                Automobile design drawings, sketch
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .image-item {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background: #f3f3f3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .image-item:hover img {
+      transform: scale(1.04);
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(30, 30, 30, 0.75);
+      color: #fff;
+      padding: 0.75em 1em;
+      border-radius: 0 0 0.5rem 0.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      font-size: 0.92em;
+      text-align: left;
+      pointer-events: none;
+    }
+    .image-item:hover .caption,
+    .image-item:focus-within .caption {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    @media (max-width: 768px) {
+      .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+      .caption {
+        font-size: 1em;
+      }
+    }
+  </style>
+</section>
+
+
+<!-- Simplified Animation Showcase with Smooth Transitions -->
+<section class="section hero is-light animation-showcase">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">💡 Image Understanding</h2>
+    
+    <!-- Carousel with Navigation Arrows -->
+    <div class="understanding-carousel-container">
+      <button class="understanding-nav-arrow understanding-prev" onclick="moveUnderstandingCarousel(-1)">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+      </button>
+      
+      <div id="understanding-carousel" class="simple-carousel">
+        <div class="understanding-carousel-track">
+          <div class="understanding-carousel-item active">
+            <img src="static/images/answer_evolution0.gif" alt="Animation 1"/>
+          </div>
+          <div class="understanding-carousel-item">
+            <img src="static/images/answer_evolution3.gif" alt="Animation 2"/>
+          </div>
+          <div class="understanding-carousel-item">
+            <img src="static/images/answer_evolution6.gif" alt="Animation 3"/>
+          </div>
+          <div class="understanding-carousel-item">
+            <img src="static/images/answer_evolution7.gif" alt="Animation 4"/>
+          </div>
+          <div class="understanding-carousel-item">
+            <img src="static/images/answer_evolution9.gif" alt="Animation 5"/>
+          </div>
+          <div class="understanding-carousel-item">
+            <img src="static/images/answer_evolution10.gif" alt="Animation 6"/>
+          </div>
+        </div>
+      </div>
+      
+      <button class="understanding-nav-arrow understanding-next" onclick="moveUnderstandingCarousel(1)">
+        <span class="icon">
+          <i class="fas fa-chevron-right"></i>
+        </span>
+      </button>
+    </div>
+    
+    <!-- Dot Navigation -->
+    <div class="understanding-carousel-navigation">
+      <div class="understanding-nav-dots">
+        <span class="understanding-dot active" onclick="jumpToUnderstandingSlide(0)"></span>
+        <span class="understanding-dot" onclick="jumpToUnderstandingSlide(1)"></span>
+        <span class="understanding-dot" onclick="jumpToUnderstandingSlide(2)"></span>
+        <span class="understanding-dot" onclick="jumpToUnderstandingSlide(3)"></span>
+        <span class="understanding-dot" onclick="jumpToUnderstandingSlide(4)"></span>
+        <span class="understanding-dot" onclick="jumpToUnderstandingSlide(5)"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Container for carousel with arrows */
+  .understanding-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Unique styling for understanding carousel */
+  #understanding-carousel {
+    width: 80%; /* Carousel width 80% of container */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 6px;
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
+  }
+  
+  .understanding-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 600%; /* 100% × number of slides (6) */
+  }
+  
+  .understanding-carousel-item {
+    width: 16.666%; /* 100% ÷ number of slides (6) */
+    flex: 0 0 16.666%;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .understanding-carousel-item.active {
+    opacity: 1;
+  }
+  
+  /* Image styling - control dimensions */
+  .understanding-carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 800px; /* Set a reasonable max height */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Navigation Arrows */
+  .understanding-nav-arrow {
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .understanding-nav-arrow:hover {
+    background-color: rgba(0,0,0,0.5);
+    transform: scale(1.1);
+  }
+  
+  .understanding-prev {
+    left: 5%;
+  }
+  
+  .understanding-next {
+    right: 5%;
+  }
+  
+  /* Dot Navigation */
+  .understanding-carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .understanding-nav-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .understanding-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .understanding-dot:hover {
+    background-color: #b5b5b5;
+  }
+  
+  .understanding-dot.active {
+    background-color: #4a4a4a;
+    transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .understanding-nav-arrow {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .understanding-dot {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .understanding-nav-dots {
+      gap: 10px;
+    }
+    
+    .understanding-carousel-item img {
+      max-height: 400px; /* Smaller max height on mobile */
+    }
+  }
+</style>
+
+<script>
+  // Smooth carousel functionality for understanding section
+  document.addEventListener('DOMContentLoaded', function() {
+    let understandingCurrentSlide = 0;
+    const understandingSlides = document.querySelectorAll('.understanding-carousel-item');
+    const understandingDots = document.querySelectorAll('.understanding-dot');
+    const understandingTrack = document.querySelector('.understanding-carousel-track');
+    let understandingAutoplayInterval = null;
+    let isAnimating = false;
+    
+    // Show the current slide with smooth transition
+    function showUnderstandingSlide() {
+      if (isAnimating) return;
+      isAnimating = true;
+      
+      // Move track to position (percentage based on current slide)
+      const slidePercentage = understandingCurrentSlide * (100 / understandingSlides.length);
+      understandingTrack.style.transform = `translateX(-${slidePercentage}%)`;
+      
+      // Update active state for slides
+      understandingSlides.forEach((slide, index) => {
+        if (index === understandingCurrentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Update dots
+      understandingDots.forEach((dot, index) => {
+        if (index === understandingCurrentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Allow next animation after transition completes
+      setTimeout(() => {
+        isAnimating = false;
+      }, 500); // Match this with CSS transition duration
+    }
+    
+    // Global function to jump to a specific slide
+    window.jumpToUnderstandingSlide = function(index) {
+      if (index !== understandingCurrentSlide && !isAnimating) {
+        understandingCurrentSlide = index;
+        showUnderstandingSlide();
+        resetAutoplay(); // Reset autoplay timer when manually changing slides
+      }
+    }
+    
+    // Function to move carousel
+    window.moveUnderstandingCarousel = function(direction) {
+      if (isAnimating) return;
+      
+      understandingCurrentSlide = (understandingCurrentSlide + direction + understandingSlides.length) % understandingSlides.length;
+      showUnderstandingSlide();
+      resetAutoplay(); // Reset autoplay timer when manually changing slides
+    }
+    
+    // Function to start autoplay
+    function startAutoplay() {
+      // Clear any existing interval first
+      if (understandingAutoplayInterval) {
+        clearInterval(understandingAutoplayInterval);
+      }
+      
+      // Set new interval
+      understandingAutoplayInterval = setInterval(function() {
+        if (!isAnimating) {
+          moveUnderstandingCarousel(1); // Move to next slide
+        }
+      }, 5000); // Change slide every 5 seconds
+    }
+    
+    // Function to reset autoplay timer
+    function resetAutoplay() {
+      if (understandingAutoplayInterval) {
+        clearInterval(understandingAutoplayInterval);
+        startAutoplay();
+      }
+    }
+    
+    // Initialize the carousel
+    understandingSlides[0].classList.add('active');
+    understandingDots[0].classList.add('active');
+    
+    // Start autoplay
+    startAutoplay();
+    
+    // Pause autoplay on hover
+    const carousel = document.getElementById('understanding-carousel');
+    carousel.addEventListener('mouseenter', function() {
+      clearInterval(understandingAutoplayInterval);
+      understandingAutoplayInterval = null;
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+      startAutoplay();
+    });
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        moveUnderstandingCarousel(-1);
+      } else if (e.key === 'ArrowRight') {
+        moveUnderstandingCarousel(1);
+      }
+    });
+    
+    // Handle touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      // Detect swipe direction with a threshold of 50px
+      if (touchEndX < touchStartX - 50) {
+        moveUnderstandingCarousel(1); // Swipe left, go to next
+      } else if (touchEndX > touchStartX + 50) {
+        moveUnderstandingCarousel(-1); // Swipe right, go to previous
+      }
+    }
+  });
+</script>
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="has-text-centered">
+      <h2 class="title is-3">👁️‍🗨️ More Results</h2>
+      <div class="hero-body">
+        <figure class="image">
+          <img src="static/images/teaser.png" alt="Learning from model weights" class="blend-img-background center-image teaser-image">
+        </figure>
+        <p class="results-description">
+          <strong>Qualitative Results of Visual Generation and Understanding Capabilities of FUDOKI.</strong> Fudoki is designed based on the framework of discrete flow matching for both visual and textual modalities, capable of performing understanding and generation simultaneously under one unified paradigm.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .teaser-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .results-description {
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 90%;
+    color: #333;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 768px) {
+    .results-description {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+</style>
+
+<section class="section hero is-light animation-showcase">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">🔄 Text Generation Process Comparison</h2>
+    
+    <!-- Carousel with Navigation Arrows -->
+    <div class="comparison-carousel-container">
+      <button class="comparison-nav-arrow comparison-prev" onclick="moveComparisonCarousel(-1)">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+      </button>
+      
+      <div id="comparison-carousel" class="simple-carousel">
+        <div class="comparison-carousel-track">
+          <div class="comparison-carousel-item active">
+            <img src="static/images/i2t_case_1.png" alt="Generation Comparison 1"/>
+          </div>
+          <div class="comparison-carousel-item">
+            <img src="static/images/i2t_case_2.png" alt="Generation Comparison 2"/>
+          </div>
+        </div>
+      </div>
+      
+      <button class="comparison-nav-arrow comparison-next" onclick="moveComparisonCarousel(1)">
+        <span class="icon">
+          <i class="fas fa-chevron-right"></i>
+        </span>
+      </button>
+    </div>
+    
+    <!-- Dot Navigation -->
+    <div class="comparison-carousel-navigation">
+      <div class="comparison-nav-dots">
+        <span class="comparison-dot active" onclick="jumpToComparisonSlide(0)"></span>
+        <span class="comparison-dot" onclick="jumpToComparisonSlide(1)"></span>
+      </div>
+    </div>
+    
+    <!-- Description paragraph at the bottom of the section -->
+    <div class="content model-description-container">
+      <p class="model-comparison-description">
+        <strong>Generation process of different methods:</strong>
+        <br><br>
+        <strong>(a) AR-based Janus:</strong> Can only generate tokens sequentially; if an error is made in the initial step, subsequent outputs will consistently propagate this mistake.
+        <br><br>
+        <strong>(b) D-DiT (mask-based discrete diffusion, MDD):</strong> Cannot revise tokens once unmasked, making errors irreversible and leading to poor generalization.
+        <br><br>
+        <strong>(c) FUDOKI (discrete flow matching, DFM):</strong> Allows generated tokens to be revised in subsequent steps, enabling step-by-step reasoning and error correction for more accurate answers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Container for carousel with arrows */
+  .comparison-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Unique styling for comparison carousel */
+  #comparison-carousel {
+    width: 80%; /* Carousel width 80% of container */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 6px;
+    /* No box shadow for cleaner look */
+  }
+  
+  .comparison-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%; /* 100% × number of slides (2) */
+  }
+  
+  .comparison-carousel-item {
+    width: 50%; /* 100% ÷ number of slides (2) */
+    flex: 0 0 50%;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .comparison-carousel-item.active {
+    opacity: 1;
+  }
+  
+  /* Image styling - control dimensions */
+  .comparison-carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 800px; /* Set a reasonable max height */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Description styling */
+  .model-description-container {
+    margin-top: 30px;
+    padding: 0 10px;
+  }
+  
+  .model-comparison-description {
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 90%;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  /* Navigation Arrows */
+  .comparison-nav-arrow {
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .comparison-nav-arrow:hover {
+    background-color: rgba(0,0,0,0.5);
+    transform: scale(1.1);
+  }
+  
+  .comparison-prev {
+    left: 5%;
+  }
+  
+  .comparison-next {
+    right: 5%;
+  }
+  
+  /* Dot Navigation */
+  .comparison-carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .comparison-nav-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .comparison-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .comparison-dot:hover {
+    background-color: #b5b5b5;
+  }
+  
+  .comparison-dot.active {
+    background-color: #4a4a4a;
+    transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .comparison-nav-arrow {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .comparison-dot {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .comparison-nav-dots {
+      gap: 10px;
+    }
+    
+    .comparison-carousel-item img {
+      max-height: 400px; /* Smaller max height on mobile */
+    }
+    
+    .model-comparison-description {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  // Smooth carousel functionality for comparison section
+  document.addEventListener('DOMContentLoaded', function() {
+    let comparisonCurrentSlide = 0;
+    const comparisonSlides = document.querySelectorAll('.comparison-carousel-item');
+    const comparisonDots = document.querySelectorAll('.comparison-dot');
+    const comparisonTrack = document.querySelector('.comparison-carousel-track');
+    let comparisonAutoplayInterval = null;
+    let isComparisonAnimating = false;
+    
+    // Show the current slide with smooth transition
+    function showComparisonSlide() {
+      if (isComparisonAnimating) return;
+      isComparisonAnimating = true;
+      
+      // Move track to position (percentage based on current slide)
+      const slidePercentage = comparisonCurrentSlide * (100 / comparisonSlides.length);
+      comparisonTrack.style.transform = `translateX(-${slidePercentage}%)`;
+      
+      // Update active state for slides
+      comparisonSlides.forEach((slide, index) => {
+        if (index === comparisonCurrentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Update dots
+      comparisonDots.forEach((dot, index) => {
+        if (index === comparisonCurrentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Allow next animation after transition completes
+      setTimeout(() => {
+        isComparisonAnimating = false;
+      }, 500); // Match this with CSS transition duration
+    }
+    
+    // Global function to jump to a specific slide
+    window.jumpToComparisonSlide = function(index) {
+      if (index !== comparisonCurrentSlide && !isComparisonAnimating) {
+        comparisonCurrentSlide = index;
+        showComparisonSlide();
+        resetComparisonAutoplay(); // Reset autoplay timer when manually changing slides
+      }
+    }
+    
+    // Function to move carousel
+    window.moveComparisonCarousel = function(direction) {
+      if (isComparisonAnimating) return;
+      
+      comparisonCurrentSlide = (comparisonCurrentSlide + direction + comparisonSlides.length) % comparisonSlides.length;
+      showComparisonSlide();
+      resetComparisonAutoplay(); // Reset autoplay timer when manually changing slides
+    }
+    
+    // Function to start autoplay
+    function startComparisonAutoplay() {
+      // Clear any existing interval first
+      if (comparisonAutoplayInterval) {
+        clearInterval(comparisonAutoplayInterval);
+      }
+      
+      // Set new interval
+      comparisonAutoplayInterval = setInterval(function() {
+        if (!isComparisonAnimating) {
+          moveComparisonCarousel(1); // Move to next slide
+        }
+      }, 8000); // Change slide every 8 seconds - longer time to allow reading the detailed diagrams
+    }
+    
+    // Function to reset autoplay timer
+    function resetComparisonAutoplay() {
+      if (comparisonAutoplayInterval) {
+        clearInterval(comparisonAutoplayInterval);
+        startComparisonAutoplay();
+      }
+    }
+    
+    // Initialize the carousel
+    comparisonSlides[0].classList.add('active');
+    comparisonDots[0].classList.add('active');
+    
+    // Start autoplay
+    startComparisonAutoplay();
+    
+    // Pause autoplay on hover
+    const carousel = document.getElementById('comparison-carousel');
+    carousel.addEventListener('mouseenter', function() {
+      clearInterval(comparisonAutoplayInterval);
+      comparisonAutoplayInterval = null;
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+      startComparisonAutoplay();
+    });
+    
+    // Handle touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleComparisonSwipe();
+    });
+    
+    function handleComparisonSwipe() {
+      // Detect swipe direction with a threshold of 50px
+      if (touchEndX < touchStartX - 50) {
+        moveComparisonCarousel(1); // Swipe left, go to next
+      } else if (touchEndX > touchStartX + 50) {
+        moveComparisonCarousel(-1); // Swipe right, go to previous
+      }
+    }
+  });
+</script>
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/image1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Generation.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
