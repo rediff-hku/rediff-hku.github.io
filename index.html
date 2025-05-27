@@ -1065,7 +1065,8 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{wang2025fudokidiscreteflowbasedunified,
+    <div style="position: relative;">
+      <pre><code id="bibtex-code">@article{wang2025fudokidiscreteflowbasedunified,
     title={FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities}, 
     author={Jin Wang and Yao Lai and Aoxue Li and Shifeng Zhang and Jiacheng Sun and Ning Kang and Chengyue Wu and Zhenguo Li and Ping Luo},
     year={2025},
@@ -1074,9 +1075,41 @@
     primaryClass={cs.CV},
     url={https://arxiv.org/abs/2505.20147}
 }</code></pre>
+      <button class="button is-small is-primary copy-btn" onclick="copyBibTeX()" style="position: absolute; top: 10px; right: 10px;">
+        <span class="icon is-small">
+          <i class="fas fa-copy"></i>
+        </span>
+        <span>Copy</span>
+      </button>
+    </div>
   </div>
 </section>
 <!--End BibTex citation -->
+
+<script>
+function copyBibTeX() {
+  const bibtexCode = document.getElementById('bibtex-code').textContent;
+  navigator.clipboard.writeText(bibtexCode).then(function() {
+    // 临时改变按钮文字提示复制成功
+    const btn = document.querySelector('.copy-btn span:last-child');
+    const originalText = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.textContent = originalText;
+    }, 2000);
+  });
+}
+</script>
+
+<style>
+.copy-btn {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.copy-btn:hover {
+  opacity: 1;
+}
+</style>
 
 
 
