@@ -64,9 +64,9 @@
           <h1 class="title is-1 publication-title">From Denoising to Refining: A Corrective Framework for Vision-Language Diffusion Model</h1>
           
           <!-- 图标添加在这里 -->
-          <div style="margin: 20px 0;">
+          <!-- <div style="margin: 20px 0;">
             <img src="static/images/logo.png" alt="Fudoki Logo" style="height: 120px;">
-          </div>
+          </div> -->
           
           <div class="is-size-5 publication-authors authors-list">
             <span class="author-block">Yatai Ji<sup>1</sup>, </span>
@@ -180,10 +180,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          The rapid progress of large language models (LLMs) has catalyzed the emergence of multimodal large language models (MLLMs) that unify visual understanding and image generation within a single framework. However, most existing MLLMs rely on autoregressive (AR) architectures, which impose inherent limitations on future development, such as the raster-scan order in image generation and restricted causal context modeling. In this work, we challenge the dominance of AR-based approaches by introducing 
-          <img src="static/images/logo.png" alt="Fudoki Logo" style="height:1em;vertical-align:-0.18em;margin-right:0.25em;">
-          <strong>FUDOKI</strong>, a unified multimodal model based on discrete flow matching, as an alternative to conventional AR paradigms. By leveraging metric-induced probability paths with kinetic optimal velocities, our framework goes beyond the previous masking-based corruption process, enabling iterative refinement and richer bidirectional context integration during generation. To mitigate the high cost of training from scratch, we initialize Fudoki from pre-trained AR-based MLLMs and adaptively transition to the discrete flow matching paradigm. Experimental results show that Fudoki achieves performance comparable to state-of-the-art AR-based MLLMs across both visual understanding and image generation tasks, highlighting its potential as a foundation for next-generation unified multimodal models.
-        </p>
+          Discrete diffusion models have emerged as a promising direction for vision-language tasks, offering bidirectional context modeling and theoretical parallelization. However, their practical application is severely hindered by a train-inference discrepancy, which leads to catastrophic error cascades: initial token errors during parallel decoding pollute the generation context, triggering a chain reaction of compounding errors and leading to syntactic errors and semantic hallucinations. To address this fundamental challenge, we reframe the generation process from passive denoising to active refining. We introduce <strong>ReDiff</strong>, a refining-enhanced diffusion framework that teaches the model to identify and correct its own errors. Our approach features a two-stage training process: first, we instill a foundational revision capability by training the model to revise synthetic errors; second, we implement a novel online self-correction loop where the model is explicitly trained to revise its own flawed drafts by learning from an expert's corrections. This mistake-driven learning endows the model with the crucial ability to revisit and refine its already generated output, effectively breaking the error cascade. Extensive experiments demonstrate that ReDiff significantly improves the coherence and factual accuracy of generated content, enabling stable and efficient parallel generation far superior to traditional denoising methods.
+          </p>
         </div>
       </div>
     </div>
