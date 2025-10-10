@@ -182,6 +182,9 @@
           <p>
           Discrete diffusion models have emerged as a promising direction for vision-language tasks, offering bidirectional context modeling and theoretical parallelization. However, their practical application is severely hindered by a train-inference discrepancy, which leads to catastrophic error cascades: initial token errors during parallel decoding pollute the generation context, triggering a chain reaction of compounding errors and leading to syntactic errors and semantic hallucinations. To address this fundamental challenge, we reframe the generation process from passive denoising to active refining. We introduce <strong>ReDiff</strong>, a refining-enhanced diffusion framework that teaches the model to identify and correct its own errors. Our approach features a two-stage training process: first, we instill a foundational revision capability by training the model to revise synthetic errors; second, we implement a novel online self-correction loop where the model is explicitly trained to revise its own flawed drafts by learning from an expert's corrections. This mistake-driven learning endows the model with the crucial ability to revisit and refine its already generated output, effectively breaking the error cascade. Extensive experiments demonstrate that ReDiff significantly improves the coherence and factual accuracy of generated content, enabling stable and efficient parallel generation far superior to traditional denoising methods.
           </p>
+          <figure class="image">
+            <img src="static/images/teaser.jpg" alt="Introduction" class="blend-img-background center-image teaser-image">
+          </figure>
         </div>
       </div>
     </div>
@@ -189,6 +192,49 @@
 </section>
 <!-- End paper abstract -->
 
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="has-text-centered">
+      <h2 class="title is-3">💡 ReDiff</h2>
+      <div class="hero-body">
+        <figure class="image">
+          <img src="static/images/rediff.jpg" alt="Method" class="blend-img-background center-image teaser-image">
+        </figure>
+        <p class="results-description">
+          ReDiff
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .teaser-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .results-description {
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 90%;
+    color: #333;
+    font-size: 0.95rem;
+  }
+  
+  @media (max-width: 768px) {
+    .results-description {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+</style>
 
 <section class="section hero">
   <div class="container is-max-desktop">
