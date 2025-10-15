@@ -86,7 +86,7 @@
           <div class="publication-links has-text-centered">
             <!-- Arxiv PDF link -->
             <span class="link-block">
-              <a href="https://arxiv.org/pdf/2505.20147" target="_blank"
+              <a href="https://arxiv.org/" target="_blank"
               class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                 <i class="fas fa-file-pdf"></i>
@@ -97,7 +97,7 @@
 
             <!-- ArXiv abstract Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2505.20147" target="_blank"
+                <a href="https://arxiv.org/abs/" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <i class="ai ai-arxiv"></i>
@@ -107,7 +107,7 @@
             </span>
 
             <span class="link-block">
-                <a href="https://huggingface.co/LucasJinWang/FUDOKI"
+                <a href="https://huggingface.co/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <!-- <i class="far fa-images"></i> -->
@@ -118,7 +118,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/fudoki-hku/FUDOKI"
+                <a href="https://github.com/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -201,13 +201,13 @@
         <figure class="image">
           <img src="static/images/rediff.jpg" alt="Method" class="blend-img-background center-image teaser-image">
         </figure>
-        <p class="results-description">
+        <p class="results-description" style="line-height: 1.6; margin-bottom: 1em;">
           (a) Observations of existing vision-language diffusion models, especially in few-step generation scenarios, reveal two predominant error types: syntactic chaos (e.g., incoherence, repetition, grammatical errors) and semantic hallucinations (content that contradicts the visual input).
         </p>
-        <p class="results-description">
+        <p class="results-description" style="line-height: 1.6; margin-bottom: 1em;">
           (b) In the foundational revision training stage, we instill a general corrective capability by training a base model (ReDiff-Base) to revise two types of synthetic errors that are intentionally injected into ground-truth captions.
         </p>
-        <p class="results-description">
+        <p class="results-description" style="line-height: 1.6;">
           (c) For the second stage, i.e., online self-correction learning, the model generates its own flawed "drafts". These drafts, containing the model's grammatical and hallucinatory errors, are then revised by an expert AI assistant. The resulting ``draft-refined pairs" provide strong supervision, teaching our final model (ReDiff) to identify and correct its own intrinsic mistakes, thus breaking the error cascade.
         </p>
       </div>
@@ -217,7 +217,7 @@
 
 <style>
   .teaser-image {
-    max-width: 90%;
+    max-width: 95%;
     height: auto;
     display: block;
     margin-left: auto;
