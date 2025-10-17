@@ -183,7 +183,7 @@
           Discrete diffusion models have emerged as a promising direction for vision-language tasks, offering bidirectional context modeling and theoretical parallelization. However, their practical application is severely hindered by a train-inference discrepancy, which leads to catastrophic error cascades: initial token errors during parallel decoding pollute the generation context, triggering a chain reaction of compounding errors and leading to syntactic errors and semantic hallucinations. To address this fundamental challenge, we reframe the generation process from passive denoising to active refining. We introduce <strong>ReDiff</strong>, a refining-enhanced diffusion framework that teaches the model to identify and correct its own errors. Our approach features a two-stage training process: first, we instill a foundational revision capability by training the model to revise synthetic errors; second, we implement a novel online self-correction loop where the model is explicitly trained to revise its own flawed drafts by learning from an expert's corrections. This mistake-driven learning endows the model with the crucial ability to revisit and refine its already generated output, effectively breaking the error cascade. Extensive experiments demonstrate that ReDiff significantly improves the coherence and factual accuracy of generated content, enabling stable and efficient parallel generation far superior to traditional denoising methods.
           </p>
           <figure class="image">
-            <img src="static/images/teaser.jpg" alt="Introduction" class="blend-img-background center-image teaser-image">
+            <img src="static/images/teaser.jpg" alt="Introduction" style="width: 80%; max-width: 600px; height: auto;">
           </figure>
         </div>
       </div>
@@ -241,6 +241,339 @@
     }
   }
 </style>
+
+
+<section class="section hero is-light animation-showcase">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">🔄 Text Generation Process Comparison</h2>
+    
+    <!-- Carousel with Navigation Arrows -->
+    <div class="comparison-carousel-container">
+      <button class="comparison-nav-arrow comparison-prev" onclick="moveComparisonCarousel(-1)">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+      </button>
+      
+      <div id="comparison-carousel" class="simple-carousel">
+        <div class="comparison-carousel-track">
+          <div class="comparison-carousel-item active">
+            <img src="static/images/i2t_case_1.png" alt="Generation Comparison 1"/>
+          </div>
+          <div class="comparison-carousel-item">
+            <img src="static/images/i2t_case_2.png" alt="Generation Comparison 2"/>
+          </div>
+        </div>
+      </div>
+      
+      <button class="comparison-nav-arrow comparison-next" onclick="moveComparisonCarousel(1)">
+        <span class="icon">
+          <i class="fas fa-chevron-right"></i>
+        </span>
+      </button>
+    </div>
+    
+    <!-- Dot Navigation -->
+    <div class="comparison-carousel-navigation">
+      <div class="comparison-nav-dots">
+        <span class="comparison-dot active" onclick="jumpToComparisonSlide(0)"></span>
+        <span class="comparison-dot" onclick="jumpToComparisonSlide(1)"></span>
+      </div>
+    </div>
+    
+    <!-- Description paragraph at the bottom of the section -->
+    <div class="content model-description-container">
+      <p class="model-comparison-description">
+        <strong>Generation process of different methods:</strong>
+        <br><br>
+        <strong>(a) AR-based Janus:</strong> Can only generate tokens sequentially; if an error is made in the initial step, subsequent outputs will consistently propagate this mistake.
+        <br><br>
+        <strong>(b) D-DiT (mask-based discrete diffusion, MDD):</strong> Cannot revise tokens once unmasked, making errors irreversible and leading to poor generalization.
+        <br><br>
+        <strong>(c) FUDOKI (discrete flow matching, DFM):</strong> Allows generated tokens to be revised in subsequent steps, enabling step-by-step reasoning and error correction for more accurate answers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Container for carousel with arrows */
+  .comparison-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Unique styling for comparison carousel */
+  #comparison-carousel {
+    width: 80%; /* Carousel width 80% of container */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 6px;
+    /* No box shadow for cleaner look */
+  }
+  
+  .comparison-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%; /* 100% × number of slides (2) */
+  }
+  
+  .comparison-carousel-item {
+    width: 50%; /* 100% ÷ number of slides (2) */
+    flex: 0 0 50%;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .comparison-carousel-item.active {
+    opacity: 1;
+  }
+  
+  /* Image styling - control dimensions */
+  .comparison-carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 800px; /* Set a reasonable max height */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Description styling */
+  .model-description-container {
+    margin-top: 30px;
+    padding: 0 10px;
+  }
+  
+  .model-comparison-description {
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 90%;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  /* Navigation Arrows */
+  .comparison-nav-arrow {
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .comparison-nav-arrow:hover {
+    background-color: rgba(0,0,0,0.5);
+    transform: scale(1.1);
+  }
+  
+  .comparison-prev {
+    left: 5%;
+  }
+  
+  .comparison-next {
+    right: 5%;
+  }
+  
+  /* Dot Navigation */
+  .comparison-carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .comparison-nav-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .comparison-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #dbdbdb;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .comparison-dot:hover {
+    background-color: #b5b5b5;
+  }
+  
+  .comparison-dot.active {
+    background-color: #4a4a4a;
+    transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .comparison-nav-arrow {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .comparison-dot {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .comparison-nav-dots {
+      gap: 10px;
+    }
+    
+    .comparison-carousel-item img {
+      max-height: 400px; /* Smaller max height on mobile */
+    }
+    
+    .model-comparison-description {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  // Smooth carousel functionality for comparison section
+  document.addEventListener('DOMContentLoaded', function() {
+    let comparisonCurrentSlide = 0;
+    const comparisonSlides = document.querySelectorAll('.comparison-carousel-item');
+    const comparisonDots = document.querySelectorAll('.comparison-dot');
+    const comparisonTrack = document.querySelector('.comparison-carousel-track');
+    let comparisonAutoplayInterval = null;
+    let isComparisonAnimating = false;
+    
+    // Show the current slide with smooth transition
+    function showComparisonSlide() {
+      if (isComparisonAnimating) return;
+      isComparisonAnimating = true;
+      
+      // Move track to position (percentage based on current slide)
+      const slidePercentage = comparisonCurrentSlide * (100 / comparisonSlides.length);
+      comparisonTrack.style.transform = `translateX(-${slidePercentage}%)`;
+      
+      // Update active state for slides
+      comparisonSlides.forEach((slide, index) => {
+        if (index === comparisonCurrentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Update dots
+      comparisonDots.forEach((dot, index) => {
+        if (index === comparisonCurrentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+      
+      // Allow next animation after transition completes
+      setTimeout(() => {
+        isComparisonAnimating = false;
+      }, 500); // Match this with CSS transition duration
+    }
+    
+    // Global function to jump to a specific slide
+    window.jumpToComparisonSlide = function(index) {
+      if (index !== comparisonCurrentSlide && !isComparisonAnimating) {
+        comparisonCurrentSlide = index;
+        showComparisonSlide();
+        resetComparisonAutoplay(); // Reset autoplay timer when manually changing slides
+      }
+    }
+    
+    // Function to move carousel
+    window.moveComparisonCarousel = function(direction) {
+      if (isComparisonAnimating) return;
+      
+      comparisonCurrentSlide = (comparisonCurrentSlide + direction + comparisonSlides.length) % comparisonSlides.length;
+      showComparisonSlide();
+      resetComparisonAutoplay(); // Reset autoplay timer when manually changing slides
+    }
+    
+    // Function to start autoplay
+    function startComparisonAutoplay() {
+      // Clear any existing interval first
+      if (comparisonAutoplayInterval) {
+        clearInterval(comparisonAutoplayInterval);
+      }
+      
+      // Set new interval
+      comparisonAutoplayInterval = setInterval(function() {
+        if (!isComparisonAnimating) {
+          moveComparisonCarousel(1); // Move to next slide
+        }
+      }, 8000); // Change slide every 8 seconds - longer time to allow reading the detailed diagrams
+    }
+    
+    // Function to reset autoplay timer
+    function resetComparisonAutoplay() {
+      if (comparisonAutoplayInterval) {
+        clearInterval(comparisonAutoplayInterval);
+        startComparisonAutoplay();
+      }
+    }
+    
+    // Initialize the carousel
+    comparisonSlides[0].classList.add('active');
+    comparisonDots[0].classList.add('active');
+    
+    // Start autoplay
+    startComparisonAutoplay();
+    
+    // Pause autoplay on hover
+    const carousel = document.getElementById('comparison-carousel');
+    carousel.addEventListener('mouseenter', function() {
+      clearInterval(comparisonAutoplayInterval);
+      comparisonAutoplayInterval = null;
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+      startComparisonAutoplay();
+    });
+    
+    // Handle touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carousel.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleComparisonSwipe();
+    });
+    
+    function handleComparisonSwipe() {
+      // Detect swipe direction with a threshold of 50px
+      if (touchEndX < touchStartX - 50) {
+        moveComparisonCarousel(1); // Swipe left, go to next
+      } else if (touchEndX > touchStartX + 50) {
+        moveComparisonCarousel(-1); // Swipe right, go to previous
+      }
+    }
+  });
+</script>
 
 <section class="section hero">
   <div class="container is-max-desktop">
