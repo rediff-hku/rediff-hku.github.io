@@ -296,13 +296,16 @@
     <!-- Description paragraph at the bottom of the section -->
     <div class="content model-description-container">
       <p class="model-comparison-description">
-        <strong>Generation process of different methods:</strong>
+        Comparison of the parallel-generated captions from ReDiff and LLaDA-V. 
+        When generating multiple tokens each step, the baseline's output suffers from token repetition, grammatical errors, and semantic hallucinations. This occurs because an initial chaos or hallucination can affect subsequent generation, leading to error cascades.
+        In contrast, our model's output is fluent, coherent, and factually grounded. Because ReDiff has the ability to revisit and refine its own outputs.
+        <!-- <strong>Generation process of different methods:</strong>
         <br><br>
         <strong>(a) AR-based Janus:</strong> Can only generate tokens sequentially; if an error is made in the initial step, subsequent outputs will consistently propagate this mistake.
         <br><br>
         <strong>(b) D-DiT (mask-based discrete diffusion, MDD):</strong> Cannot revise tokens once unmasked, making errors irreversible and leading to poor generalization.
         <br><br>
-        <strong>(c) FUDOKI (discrete flow matching, DFM):</strong> Allows generated tokens to be revised in subsequent steps, enabling step-by-step reasoning and error correction for more accurate answers.
+        <strong>(c) FUDOKI (discrete flow matching, DFM):</strong> Allows generated tokens to be revised in subsequent steps, enabling step-by-step reasoning and error correction for more accurate answers. -->
       </p>
     </div>
   </div>
@@ -1019,13 +1022,13 @@
     <h2 class="title">BibTeX</h2>
     <div style="position: relative;">
       <pre><code id="bibtex-code">@article{wang2025fudokidiscreteflowbasedunified,
-    title={FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities}, 
-    author={Jin Wang and Yao Lai and Aoxue Li and Shifeng Zhang and Jiacheng Sun and Ning Kang and Chengyue Wu and Zhenguo Li and Ping Luo},
+    title={From Denoising to Refining: A Corrective Framework for Vision-Language Diffusion Model}, 
+    author={Yatai Ji and Teng Wang and Yuying Ge and Zhiheng Liu and Sidi Yang and Ying Shan and Ping Luo},
     year={2025},
-    eprint={2505.20147},
+    eprint={},
     archivePrefix={arXiv},
     primaryClass={cs.CV},
-    url={https://arxiv.org/abs/2505.20147}
+    url={}
 }</code></pre>
       <button class="button is-small is-primary copy-btn" onclick="copyBibTeX()" style="position: absolute; top: 10px; right: 10px;">
         <span class="icon is-small">
