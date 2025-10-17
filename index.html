@@ -975,10 +975,17 @@
       <h2 class="title is-3">👁️‍🗨️ More Results</h2>
       <div class="hero-body">
         <figure class="image">
-          <img src="static/images/teaser.png" alt="Learning from model weights" class="blend-img-background center-image teaser-image">
+          <img src="static/images/vis2.jpg" alt="inference w/wo refine" class="blend-img-background center-image teaser-image">
         </figure>
         <p class="results-description">
-          <strong>Qualitative Results of Visual Generation and Understanding Capabilities of FUDOKI.</strong> Fudoki is designed based on the framework of discrete flow matching for both visual and textual modalities, capable of performing understanding and generation simultaneously under one unified paradigm.
+          Comparison of inference with and without the refinement highlights that the refinement capability is critical for achieving high-quality outputs. 
+          If ReDiff inferences without the refinement, errors tend to accumulate, such as repeated words or symbols and incoherent sentences, ultimately degrading the quality of the caption.   
+        </p>
+        <figure class="image">
+          <img src="static/images/vis4.jpg" alt="revise wrong ans" class="blend-img-background center-image teaser-image">
+        </figure>
+        <p class="results-description">
+          Beyond correcting the model's own errors during generation, ReDiff also demonstrates a powerful, generalizable ability to revise disturbing inputs. When we provide the model with an image and a user-provided caption containing either syntactic chaos or a factual hallucination, our model successfully corrects the initial erroneous text and proceeds to generate a coherent and accurate completion.
         </p>
       </div>
     </div>
