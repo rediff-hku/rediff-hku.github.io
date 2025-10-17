@@ -290,6 +290,7 @@
       <div class="comparison-nav-dots">
         <span class="comparison-dot active" onclick="jumpToComparisonSlide(0)"></span>
         <span class="comparison-dot" onclick="jumpToComparisonSlide(1)"></span>
+        <span class="comparison-dot" onclick="jumpToComparisonSlide(2)"></span>
       </div>
     </div>
     
@@ -321,7 +322,7 @@
   
   /* Unique styling for comparison carousel */
   #comparison-carousel {
-    width: 80%; /* Carousel width 80% of container */
+    width: 90%; /* Carousel width 80% of container */
     position: relative;
     overflow: hidden;
     margin: 0 auto;
@@ -332,11 +333,11 @@
   .comparison-carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 200%; /* 100% × number of slides (2) */
+    width: 300%; /* 100% × number of slides (2) */
   }
   
   .comparison-carousel-item {
-    width: 50%; /* 100% ÷ number of slides (2) */
+    width: 33%; /* 100% ÷ number of slides (2) */
     flex: 0 0 50%;
     text-align: center;
     opacity: 0.5;
@@ -360,15 +361,11 @@
   }
 
   .image-caption {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7); /* 半透明背景 */
-    color: white;
-    border-radius: 4px;
+    margin: 10px 0 0 0;
     font-size: 14px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    color: #666; /* 灰色文字 */
+    text-align: center;
+    font-style: italic;
   }
   
   /* Description styling */
